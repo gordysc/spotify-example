@@ -13,7 +13,13 @@
                   autocomplete: "current-password",
                   hint: "#{link_to('Forgot Password?', new_password_path(resource_name), class: 'float-end')}".html_safe %>
       <%= f.input :remember_me, as: :boolean %>
+
       <%= f.button :submit, "Sign In", class: 'btn btn-primary w-100', id: 'login_submit' %>
     <% end %>
+
+    <hr />
+
+    <%= button_to "Sign in with Spotify", user_spotify_omniauth_authorize_path,
+          method: :post, data: { turbo: false }, class: "btn btn-spotify w-100" %><br />
   </div>
 </div>

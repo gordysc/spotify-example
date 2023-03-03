@@ -1,0 +1,6 @@
+<h1><%= current_user.email %></h1>
+<hr />
+
+<div class="pt-4">
+ <%= link_to 'Sign Out', destroy_session_path(current_user), class: 'btn btn-danger' %>
+</div>

@@ -42,6 +42,11 @@ gem "simple_form"
 # Environment variables
 gem "dotenv-rails"
 
+# OAuth2 Authentication
+# https://github.com/icoretech/omniauth-spotify/issues/8#issuecomment-221426633
+gem "omniauth-oauth2", "1.3.1"
+gem "omniauth-spotify"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -63,17 +68,13 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Debugging [https://github.com/pry/pry]
+  gem 'pry'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
 
 group :test do
