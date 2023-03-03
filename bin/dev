@@ -1,8 +1,14 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-if ! gem list foreman -i --silent; then
-  echo "Installing foreman..."
-  gem install foreman
+# Clean up any leftover processes
+rm -f /app/.overmind.sock
+rm -f /app/tmp/pids/server.pid
+
+if ! command -v overmind &> /dev/null
+then
+  echo "ERROR: Overmind must be installed first"
+  echo "See: https://github.com/DarthSim/overmind#installation"
+  exit
 fi
 
-exec foreman start -f Procfile.dev "$@"
+overmind start
